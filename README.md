@@ -1,3 +1,6 @@
+# Some fixes to base plugin
+feel free to yoink anything
+
 # CS2 Simple Guns Menu
 Plugin for CS2 that when a player on game types some **`guns`**, gun menu will open and player will able to select weapon from there.
 
