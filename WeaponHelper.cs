@@ -8,16 +8,10 @@ public partial class SimpleGunMenuPlugin
         Secondary = 1,
     }
 
-    public class Weapon
+    public class Weapon(string giveName, SimpleGunMenuPlugin.WeaponType type = SimpleGunMenuPlugin.WeaponType.Primary)
     {
-        public Weapon(string giveName, WeaponType type = WeaponType.Primary)
-        {
-            Type = type;
-            GiveName = giveName;
-        }
-
-        public WeaponType Type { get; set; }
-        public string GiveName { get; set; }
+        public WeaponType Type { get; set; } = type;
+        public string GiveName { get; set; } = giveName;
     }
 
     private static class WeaponHelper
@@ -28,7 +22,7 @@ public partial class SimpleGunMenuPlugin
             {
                 {"AK-47",                              new("weapon_ak47")},
                 {"AWP",                                new("weapon_awp")},
-                {"Desert Eagle",                       new("weapon_deagle")},
+                {"Desert Eagle",                       new("weapon_deagle",         WeaponType.Secondary)},
                 {"M4A4",                               new("weapon_m4a1")},
                 {"M4A1-S",                             new("weapon_m4a1_silencer")},
                 {"SG 553",                             new("weapon_sg553")},
@@ -69,7 +63,7 @@ public partial class SimpleGunMenuPlugin
             {
                 {"weapon_ak47",                        new("weapon_ak47")},
                 {"weapon_awp",                         new("weapon_awp")},
-                {"weapon_deagle",                      new("weapon_deagle")},
+                {"weapon_deagle",                      new("weapon_deagle",         WeaponType.Secondary)},
                 {"weapon_m4a1",                        new("weapon_m4a1")},
                 {"weapon_m4a1_silencer",               new("weapon_m4a1_silencer")},
                 {"weapon_sg553",                       new("weapon_sg553")},
