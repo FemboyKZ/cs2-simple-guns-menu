@@ -2,6 +2,7 @@
 using CounterStrikeSharp.API.Core.Attributes.Registration;
 using CounterStrikeSharp.API.Modules.Commands;
 using CounterStrikeSharp.API.Modules.Menu;
+using CounterStrikeSharp.API.Modules.Utils;
 
 namespace SimpleGunMenuPlugin;
 
@@ -69,6 +70,10 @@ public partial class SimpleGunMenuPlugin : BasePlugin
             player.PrintToChat("Only alive players can call this command");
             return false;
         }
+
+        if(player.Team == CsTeam.Spectator) return false;
+        if(player.Team == CsTeam.None) return false;
+
         return true;
     }
 }
