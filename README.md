@@ -15,6 +15,6 @@ Plugin for CS2 that when a player on game types some **`guns`**, gun menu will o
 
 ## Commands
 
-- **`guns`** - Opens menu for guns, player can move around with command calls and select a weapon
-- **`pistols`** or **`secondary`** - same as **`guns`** but only pistols
-- **`rifles`** or **`primary`** - same as **`guns`** but only rifles
+- **`weapon`**, **`weapons`**, **`gun`** or **`guns`** - Opens menu for guns, player can move around with command calls and select a weapon
+- **`pistol`**, **`pistols`** or **`secondary`** - same as **`guns`** but only pistols
+- **`rifle`**, **`rifles`** or **`primary`** - same as **`guns`** but only rifles
