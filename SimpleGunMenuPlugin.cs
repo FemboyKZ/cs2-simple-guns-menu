@@ -9,7 +9,7 @@ namespace SimpleGunMenuPlugin;
 public partial class SimpleGunMenuPlugin : BasePlugin
 {
     public override string ModuleName => "GunMenuPlugin";
-    public override string ModuleVersion => "0.0.4-fix";
+    public override string ModuleVersion => "0.0.5-fix";
     public override string ModuleAuthor => "Constummer (Dots fix)";
     public override string ModuleDescription => "Gun Menu Plugin";
 
@@ -17,7 +17,10 @@ public partial class SimpleGunMenuPlugin : BasePlugin
     {
     }
 
+    [ConsoleCommand("gun")]
     [ConsoleCommand("guns")]
+    [ConsoleCommand("weapon")]
+    [ConsoleCommand("weapons")]
     public static void Guns(CCSPlayerController? player, CommandInfo info)
     {
         if (ValidatePlayer(player) == false)
@@ -27,9 +30,13 @@ public partial class SimpleGunMenuPlugin : BasePlugin
 
         var gunMenu = new ChatMenu("Gun Menu");
         MenuHelper.GetGuns(gunMenu);
-        MenuManager.OpenChatMenu(player, gunMenu);
+        if (player != null)
+        {
+            MenuManager.OpenChatMenu(player, gunMenu);
+        }
     }
 
+    [ConsoleCommand("pistol")]
     [ConsoleCommand("pistols")]
     [ConsoleCommand("secondary")]
     public static void Pistols(CCSPlayerController? player, CommandInfo info)
@@ -41,9 +48,13 @@ public partial class SimpleGunMenuPlugin : BasePlugin
 
         var gunMenu = new ChatMenu($"{info.GetCommandString.Split(" ")[0]} Menu");
         MenuHelper.GetGuns(gunMenu, WeaponType.Secondary);
-        MenuManager.OpenChatMenu(player, gunMenu);
+        if (player != null)
+        {
+            MenuManager.OpenChatMenu(player, gunMenu);
+        }
     }
 
+    [ConsoleCommand("rifle")]
     [ConsoleCommand("rifles")]
     [ConsoleCommand("primary")]
     public static void Rifles(CCSPlayerController? player, CommandInfo info)
@@ -55,7 +66,10 @@ public partial class SimpleGunMenuPlugin : BasePlugin
 
         var gunMenu = new ChatMenu($"{info.GetCommandString.Split(" ")[0]} Menu");
         MenuHelper.GetGuns(gunMenu, WeaponType.Primary);
-        MenuManager.OpenChatMenu(player, gunMenu);
+        if (player != null)
+        {
+            MenuManager.OpenChatMenu(player, gunMenu);
+        }
     }
 
     private static bool ValidatePlayer(CCSPlayerController? player)
