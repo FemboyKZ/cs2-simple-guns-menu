@@ -12,9 +12,9 @@ public partial class SimpleGunMenuPlugin
 
         static MenuHelper()
         {
-            var res = WeaponHelper.LoadWeapons();
-            _weapons = res.Weapons;
-            _weaponCheckers = res.WeaponCheckers;
+            var (Weapons, WeaponCheckers) = WeaponHelper.LoadWeapons();
+            _weapons = Weapons;
+            _weaponCheckers = WeaponCheckers;
         }
 
         internal static void GetGuns(ChatMenu gunMenu, WeaponType? type = null)
